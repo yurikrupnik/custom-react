@@ -18,3 +18,5 @@ const StyledButton = styled(Button)`
         }
     }   
 `;
+
+export default StyuledButton;

@@ -1,1 +1,3 @@
-export default from './PillButton';
+import PillButton from './PillButton';
+
+export default PillButton;

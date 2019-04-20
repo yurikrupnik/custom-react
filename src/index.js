@@ -1,4 +1,12 @@
-// import Buttons from './Buttons';
-export default from 'Buttons';
-export default from 'Avatar';
-export default from 'PillButton';
+// import BaseButton from './BaseButton';
+import BaseButton from './BaseButton';
+import PillButton from './PillButton';
+
+// export default BaseButton;
+
+export {
+    BaseButton,
+    PillButton
+};
+// export default from 'Avatar';
+// export default from 'PillButton';

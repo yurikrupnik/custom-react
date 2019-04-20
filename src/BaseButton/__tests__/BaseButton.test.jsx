@@ -1,6 +1,6 @@
 import React from 'react'; // eslint-disable-line
 import { render, cleanup } from 'react-testing-library';
-import Component from '../PillButton';
+import Component from '../BaseButton';
 
 const {
     test,
@@ -11,5 +11,5 @@ afterEach(cleanup);
 
 test(`render ${Component.name} Component`, () => {
     const props = {};
-    render(<Component {...props} />);
+    render(<Component {...props}>Title</Component>);
 });

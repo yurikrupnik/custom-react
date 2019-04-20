@@ -9,9 +9,9 @@
     "prebuild": "npm run clean",
     "build": "webpack --env.prod",
     "lint": "eslint --ext js,jsx .",
-    "test": "jest src/",
-    "test:watch": "jest src/ --watch",
-    "test:coverage": "jest src/ --coverage",
+    "test": "jest src",
+    "test:watch": "jest src --watch",
+    "test:coverage": "jest src --coverage",
     "test:e2e": "jest e2e/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -31,6 +31,8 @@
   "homepage": "https://github.com/yurikrupnik/custom-react#readme",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-loadable": "^5.5.0",
     "styled-components": "^4.2.0"
@@ -42,21 +44,34 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^5.0.10",
+    "@storybook/addon-knobs": "^5.0.10",
     "@storybook/addon-links": "^5.0.10",
     "@storybook/addons": "^5.0.10",
     "@storybook/react": "^5.0.10",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.7.1",
     "mini-css-extract-plugin": "^0.6.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "react-testing-library": "^6.1.2",
     "storybook-readme": "^5.0.2",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
   }
 }
