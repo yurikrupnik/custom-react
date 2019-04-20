@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "some custom react stuff",
   "main": "src/index.js",
   "scripts": {
@@ -23,10 +23,6 @@
       "pre-commit": "npm run test"
     }
   },
-  "files": [
-    "src",
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/custom-react.git"
