@@ -1,8 +1,8 @@
 {
   "name": "custom-react",
-  "version": "1.0.7",
+  "version": "1.2.0",
   "description": "some custom react stuff",
-  "main": "dist/index.js",
+  "main": "./index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist/",
@@ -16,11 +16,9 @@
     "test:e2e": "jest e2e/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepublish": "npm run build",
-    "publish": "npm publish"
+    "prepublish": "npm run build"
   },
   "files": [
-    "src"
   ],
   "husky": {
     "hooks": {
