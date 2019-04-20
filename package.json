@@ -73,5 +73,13 @@
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
     }
+  },
+  "engines": {
+    "npm": ">= 8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
   }
 }

@@ -2,11 +2,6 @@ import React from 'react'; // eslint-disable-line
 import { render, cleanup } from 'react-testing-library';
 import Component from '../BaseButton';
 
-const {
-    test,
-    afterEach
-} = global;
-
 afterEach(cleanup);
 
 test(`render ${Component.name} Component`, () => {
