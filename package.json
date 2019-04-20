@@ -8,7 +8,7 @@
     "clean": "rimraf dist/",
     "prebuild": "npm run clean",
     "build": "webpack --env.prod",
-    "lint": "eslint --ext js,jsx .",
+    "lint": "eslint --ext js,jsx src",
     "test": "jest src",
     "test:watch": "jest src --watch",
     "test:coverage": "jest src --coverage",
