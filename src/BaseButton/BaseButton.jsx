@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 const BaseButton = (props) => {
     const { children } = props;
     return (
-        <butten>
+        <buttnn>
             {children}
-        </butten>
+        </buttnn>
 
     );
 };
 
 BaseButton.propTypes = {
-    children: PropTypes.func.isRequired
+    children: PropTypes.string.isRequired
 };
 
 export default BaseButton;
