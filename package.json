@@ -9,12 +9,18 @@
     "prebuild": "npm run clean",
     "build": "webpack --env.prod",
     "lint": "eslint --ext js,jsx src",
+    "prsetest": "npm run lint",
     "test": "jest src",
     "test:watch": "jest src --watch",
     "test:coverage": "jest src --coverage",
     "test:e2e": "jest e2e/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
   },
   "repository": {
     "type": "git",
@@ -79,10 +85,5 @@
   },
   "engines": {
     "npm": ">= 8"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test"
-    }
   }
 }
