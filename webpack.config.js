@@ -16,6 +16,9 @@ module.exports = (env) => {
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {
+            // splitChunks: {
+            //     chunks: 'all'
+            // },
             minimizer: [
                 new TerserPlugin(),
                 new OptimizeCSSAssetsPlugin({})
