@@ -1,8 +1,8 @@
 {
   "name": "custom-react",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "some custom react stuff",
-  "main": "./index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist/",
@@ -23,6 +23,10 @@
       "pre-commit": "npm run test"
     }
   },
+  "files": [
+    "src",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/custom-react.git"
