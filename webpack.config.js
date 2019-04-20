@@ -4,7 +4,10 @@ const TerserPlugin = require('terser-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const GenerateJsonPlugin = require('generate-json-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const json = require('./package');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -27,7 +30,7 @@ module.exports = (env) => {
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',
-            path: path.resolve(__dirname, 'dist/assets'),
+            path: path.resolve(__dirname, 'dist'),
             publicPath: '/'
         },
         mode: isProd ? 'production' : 'development',
@@ -71,6 +74,10 @@ module.exports = (env) => {
             ]
         },
         plugins: [
+            new CopyPlugin([
+                { from: '../LICENSE' },
+                { from: '../README.md' }
+            ]),
             new webpack.DefinePlugin({
                 'process.env.DEBUG': JSON.stringify(isDebug),
                 'process.env.PORT': JSON.stringify(process.env.PORT)
@@ -95,10 +102,17 @@ module.exports = (env) => {
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
             }),
+            new GenerateJsonPlugin('package.json', Object.assign({}, json, {
+                // main: filename,
+                scripts: {
+                    start: 'node main.js'
+                },
+                devDependencies: {}
+            })),
             // new BundleAnalyzerPlugin({
-            //     analyzerMode: 'static',
-            //     openAnalyzer: false,
-            //     reportFilename: 'bundles-report/index.ejs'
+            // analyzerMode: 'static',
+            // openAnalyzer: false,
+            // reportFilename: 'bundles-report/index.ejs'
             // }),
             // process.env.NODE_ENV_DOCKER ? new BundleAnalyzerPlugin({
             //     analyzerMode: 'static',
