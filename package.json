@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "some custom react stuff",
   "main": "dist/index.js",
   "scripts": {
@@ -17,10 +17,10 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublish": "npm run build",
-    "publish": "npm publish dist"
+    "publish": "npm publish"
   },
   "files": [
-    "dist"
+    "src"
   ],
   "husky": {
     "hooks": {
