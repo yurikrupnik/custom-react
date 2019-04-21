@@ -66,8 +66,8 @@ typings/
 #LICENSE
 
 .idea
-#dist
 .storybook
+src
 .editorconfig
 .eslintignore
 .gitignore

@@ -1,13 +1,14 @@
 {
   "name": "custom-react",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "some custom react stuff",
   "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist/",
     "prebuild": "npm run clean",
-    "build": "webpack",
+    "builds": "webpack",
+    "build": "rollup -c",
     "lint": "eslint --ext js,jsx .",
     "prsetest": "npm run lint",
     "test": "jest src",
@@ -18,6 +19,9 @@
     "build-storybook": "build-storybook",
     "prepublish": "npm run build"
   },
+  "files": [
+    "dist"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "npm run test"
@@ -57,6 +61,7 @@
     "@storybook/react": "^5.0.10",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-external-helpers": "^6.22.0",
     "copy-webpack-plugin": "^5.0.2",
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
@@ -74,6 +79,9 @@
     "mini-css-extract-plugin": "^0.6.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react-testing-library": "^6.1.2",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-uglify": "^6.0.2",
     "storybook-readme": "^5.0.2",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.30.0",

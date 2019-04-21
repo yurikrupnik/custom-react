@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/github/repo-size/yurikrupnik/custom-react.svg)](https://travis-ci.org/yurikrupnik/custom-react)
+[![Build Status](https://img.shields.io/github/languages/code-size/yurikrupnik/custom-react.svg)](https://travis-ci.org/yurikrupnik/custom-react)
+[![Build Status](https://img.shields.io/bundlephobia/min/custom-react.svg)](https://travis-ci.org/yurikrupnik/custom-react)
 [![Build Status](https://travis-ci.org/yurikrupnik/custom-react.svg?branch=master)](https://travis-ci.org/yurikrupnik/custom-react)
 [![Coverage Status](https://coveralls.io/repos/github/yurikrupnik/custom-react/badge.svg?branch=master)](https://coveralls.io/github/yurikrupnik/custom-react?branch=master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/yurikrupnik/custom-react?branch=master)](https://bettercodehub.com/)
