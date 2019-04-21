@@ -2,7 +2,7 @@
   "name": "custom-react",
   "version": "1.3.0",
   "description": "some custom react stuff",
-  "main": "src/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist/",

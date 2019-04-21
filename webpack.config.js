@@ -4,10 +4,10 @@ const TerserPlugin = require('terser-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const GenerateJsonPlugin = require('generate-json-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const json = require('./package');
+// const GenerateJsonPlugin = require('generate-json-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const json = require('./package');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -77,10 +77,10 @@ module.exports = (env) => {
             ]
         },
         plugins: [
-            new CopyPlugin([
-                { from: '../LICENSE' },
-                { from: '../README.md' }
-            ]),
+            // new CopyPlugin([
+            //     { from: '../LICENSE' },
+            //     { from: '../README.md' }
+            // ]),
             new webpack.DefinePlugin({
                 'process.env.DEBUG': JSON.stringify(isDebug),
                 'process.env.PORT': JSON.stringify(process.env.PORT)
@@ -105,13 +105,13 @@ module.exports = (env) => {
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
             }),
-            new GenerateJsonPlugin('package.json', Object.assign({}, json, {
-                // main: filename,
-                scripts: {
-                    start: 'node main.js'
-                },
-                devDependencies: {}
-            })),
+            // new GenerateJsonPlugin('package.json', Object.assign({}, json, {
+            //     // main: filename,
+            //     scripts: {
+            //         start: 'node main.js'
+            //     },
+            //     devDependencies: {}
+            // })),
             // new BundleAnalyzerPlugin({
             // analyzerMode: 'static',
             // openAnalyzer: false,
