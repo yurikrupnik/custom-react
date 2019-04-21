@@ -65,4 +65,11 @@ typings/
 #package.json
 #LICENSE
 
-dist
+.idea
+#dist
+.storybook
+.editorconfig
+.eslintignore
+.gitignore
+.travis.yml
+webpack.config.js
