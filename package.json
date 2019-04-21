@@ -1,14 +1,14 @@
 {
   "name": "custom-react",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "some custom react stuff",
   "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist/",
     "prebuild": "npm run clean",
-    "builds": "webpack",
-    "build": "rollup -c",
+    "build": "webpack",
+    "builds": "rollup -c",
     "lint": "eslint --ext js,jsx .",
     "prsetest": "npm run lint",
     "test": "jest src",
@@ -19,9 +19,6 @@
     "build-storybook": "build-storybook",
     "prepublish": "npm run build"
   },
-  "files": [
-    "dist"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "npm run test"
