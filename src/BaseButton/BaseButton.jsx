@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const BaseButton = (props) => {
     const { children } = props;
     return (
-        <button type="button">
+        <button type="button" onClick={() => {}}>
             {children}
         </button>
 
@@ -12,7 +12,8 @@ const BaseButton = (props) => {
 };
 
 BaseButton.propTypes = {
-    children: PropTypes.string.isRequired
+    children: PropTypes.node.isRequired,
+    // shit: PropTypes.func.isRequired
 };
 
 export default BaseButton;

@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // const GenerateJsonPlugin = require('generate-json-webpack-plugin');
@@ -16,9 +16,6 @@ module.exports = (env) => {
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {
-            // splitChunks: {
-            //     chunks: 'all'
-            // },
             minimizer: [
                 new TerserPlugin(),
                 new OptimizeCSSAssetsPlugin({})
@@ -29,7 +26,7 @@ module.exports = (env) => {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
         devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
-        entry: './index.js',
+        entry: './client.jsx',
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',
@@ -41,7 +38,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader', 'eslint-loader'],
+                    use: ['babel-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -85,20 +82,19 @@ module.exports = (env) => {
                 'process.env.DEBUG': JSON.stringify(isDebug),
                 'process.env.PORT': JSON.stringify(process.env.PORT)
             }),
-            // new HtmlWebpackPlugin({
-            //     template: 'index.ejs',
-            //     filename: 'index.html',
-            //     favicon: 'assets/favicon.ico',
-            //     meta: {
-            //         charset: 'UTF-8',
-            //         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-            //     },
-            //     minify: {
-            //         removeComments: true,
-            //         collapseWhitespace: true,
-            //         conservativeCollapse: true
-            //     }
-            // }),
+            new HtmlWebpackPlugin({
+                template: 'index.ejs',
+                filename: 'index.html',
+                meta: {
+                    charset: 'UTF-8',
+                    viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+                },
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    conservativeCollapse: true
+                }
+            }),
             new MiniCssExtractPlugin({
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional

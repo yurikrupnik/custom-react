@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import styles from './styles.scss';
 
 const mainColor = '#b3d7ee';
 const textColor = '#333';
@@ -24,14 +25,14 @@ const StyledButton = styled(Button)`
 const PillButton = (props) => {
     const { children } = props;
     return (
-        <StyledButton>
+        <StyledButton className={styles.root}>
             {children}
         </StyledButton>
     );
 };
 
 PillButton.propTypes = {
-    children: PropTypes.string.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default PillButton;

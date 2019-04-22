@@ -1,7 +1,3 @@
-import Loadable from '../Loadable';
-
-const PillButton = Loadable({
-    loader: () => import(/* webpackChunkName: "pillButton" */ './PillButton'),
-});
+import PillButton from './PillButton';
 
 export default PillButton;
