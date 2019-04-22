@@ -16,8 +16,19 @@ module.exports = (env) => {
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {
+            // runtimeChunk: 'single',
+            // splitChunks: {
+            //     cacheGroups: {
+            //         vendor: {
+            //             test: /[\\/]node_modules[\\/]/,
+            //             name: 'vendors',
+            //             chunks: 'all'
+            //         }
+            //     }
+            // },
             minimizer: [
                 new TerserPlugin(),
+
                 new OptimizeCSSAssetsPlugin({})
             ]
         },
@@ -26,14 +37,16 @@ module.exports = (env) => {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
         devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
-        entry: './client.jsx',
+        entry: isProd ? './index.js' : './client.jsx',
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
-            publicPath: '/'
+            publicPath: '/',
+            library: 'custom-react',
+            libraryTarget: 'umd'
         },
-        mode: isProd ? 'production' : 'development',
+        mode: !isProd ? 'production' : 'development',
         module: {
             rules: [
                 {
@@ -82,7 +95,7 @@ module.exports = (env) => {
                 'process.env.DEBUG': JSON.stringify(isDebug),
                 'process.env.PORT': JSON.stringify(process.env.PORT)
             }),
-            new HtmlWebpackPlugin({
+            !isProd ? new HtmlWebpackPlugin({
                 template: 'index.ejs',
                 filename: 'index.html',
                 meta: {
@@ -94,7 +107,7 @@ module.exports = (env) => {
                     collapseWhitespace: true,
                     conservativeCollapse: true
                 }
-            }),
+            }) : () => {},
             new MiniCssExtractPlugin({
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional
