@@ -8,8 +8,8 @@
     "start": "webpack-dev-server",
     "clean": "rimraf dist/",
     "prebuild": "npm run clean && npm run test",
-    "builds": "npx babel src -d dist --ignore client.js --copy-files",
-    "build": "webpack --env.prod",
+    "build": "npx babel src -d dist --ignore client.js --copy-files",
+    "builds": "webpack --env.prod",
     "lint": "eslint --ext js,jsx src",
     "prsetest": "npm run lint",
     "test": "jest src",
@@ -18,7 +18,7 @@
     "test:e2e": "jest e2e/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepublish": "npm run build"
+    "prepack": "npm run build"
   },
   "husky": {
     "hooks": {
