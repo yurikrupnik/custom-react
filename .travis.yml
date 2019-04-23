@@ -1,8 +1,5 @@
 language: node_js
 node_js:
-  - '8'
-  - '9'
-  - '10'
   - '11'
 
 # script: echo "Running tests against $(node -v)..."
@@ -38,10 +35,10 @@ jobs:
 #    branch_pattern: coverity_scan
 
 
-#deploy:
-#  provider: npm
-#  email: "krupnik.yuri@gmail.com"
-#  api_key: "65c450c8-2867-4120-ac2d-2a216d3a7a57"
-#  on:
-#    tags: true
-#    branch: master
+deploy:
+  provider: npm
+  email: "krupnik.yuri@gmail.com"
+  api_key: "65c450c8-2867-4120-ac2d-2a216d3a7a57"
+  on:
+    tags: true
+    branch: master
