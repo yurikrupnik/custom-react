@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - '8'
   - node
 
 # script: echo "Running tests against $(node -v)..."
@@ -8,11 +9,11 @@ cache:
   directories:
     - node_modules
 
-jobs:
-  include:
-    - stage: Produce Coverage
-#      node_js: node
-      script: jest src --coverage --coverageReporters=text-lcov | coveralls
+#jobs:
+#  include:
+#    - stage: Produce Coverage
+##      node_js: node
+#      script: jest src --coverage --coverageReporters=text-lcov | coveralls
 
 
 #env:
