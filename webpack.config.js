@@ -46,7 +46,7 @@ module.exports = (env) => {
             library: 'custom-react',
             libraryTarget: 'umd'
         },
-        mode: !isProd ? 'production' : 'development',
+        mode: isProd ? 'production' : 'development',
         module: {
             rules: [
                 {
