@@ -11,48 +11,24 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 
 module.exports = (env, args) => {
-    const isProd = env ? !!env.prod : false;
+    // const isProd = env ? !!env.prod : false;
     // console.log('process.env.NODE_ENV', process.env.NODE_ENV);
     // console.log('env.NODE_ENV', env.NODE_ENV);
-    const isDebug = env ? !!env.debug : false;
+    // const isDebug = env ? !!env.debug : false;
     return {
         context: path.resolve(__dirname, 'src'),
-        // externals: {
-        //     react: 'react',
-        //     'react-dom': 'react-dom'
-        // },
-        optimization: {
-            // runtimeChunk: 'single',
-            // splitChunks: {
-            //     cacheGroups: {
-            //         vendor: {
-            //             test: /[\\/]node_modules[\\/]/,
-            //             name: 'vendors',
-            //             chunks: 'all'
-            //         }
-            //     }
-            // },
-            minimizer: [
-                // new TerserPlugin(),
-
-                // new OptimizeCSSAssetsPlugin({})
-            ]
-        },
-        // target: 'web',
         resolve: {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
-        devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
-        entry: isProd ? './index.js' : './client.jsx',
+        devtool: 'eval-cheap-module-source-map',
+        entry: './client.jsx',
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
-            publicPath: '/',
-            library: 'custom-react',
-            libraryTarget: 'umd'
+            publicPath: '/'
         },
-        mode: isProd ? 'production' : 'development',
+        mode: 'development',
         module: {
             rules: [
                 {
@@ -69,7 +45,7 @@ module.exports = (env, args) => {
                             loader: 'css-loader',
                             options: {
                                 modules: true,
-                                localIdentName: isProd ? '[hash:base64]' : '[local]--[hash:base64:5]'
+                                localIdentName: '[local]--[hash:base64:5]'
                             }
                         },
                         {
@@ -96,7 +72,7 @@ module.exports = (env, args) => {
             // new webpack.DefinePlugin({
             //     'process.env.PORT': JSON.stringify(process.env.PORT)
             // }),
-            !isProd ? new HtmlWebpackPlugin({
+            new HtmlWebpackPlugin({
                 template: 'index.ejs',
                 filename: 'index.html',
                 meta: {
@@ -108,12 +84,12 @@ module.exports = (env, args) => {
                     collapseWhitespace: true,
                     conservativeCollapse: true
                 }
-            }) : () => {},
+            }),
             new MiniCssExtractPlugin({
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional
-                filename: !isProd ? '[name].css' : '[name].[hash].css',
-                chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
+                filename: '[name].[hash].css',
+                chunkFilename: '[id].[hash].css',
             }),
             // new GenerateJsonPlugin('package.json', Object.assign({}, json, {
             //     // main: filename,
@@ -123,9 +99,9 @@ module.exports = (env, args) => {
             //     devDependencies: {}
             // })),
             new BundleAnalyzerPlugin({
-            // analyzerMode: 'static',
-            // openAnalyzer: false,
-            // reportFilename: 'bundles-report/index.ejs'
+                // analyzerMode: 'static',
+                // openAnalyzer: false,
+                // reportFilename: 'bundles-report/index.ejs'
             }),
             // process.env.NODE_ENV_DOCKER ? new BundleAnalyzerPlugin({
             //     analyzerMode: 'static',

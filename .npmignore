@@ -67,9 +67,11 @@ typings/
 
 .idea
 .storybook
-src
+#.babelrc
+#.eslintrc
+#src
 .editorconfig
-.eslintignore
+#.eslintignore
 .gitignore
 .travis.yml
-webpack.config.js
+#webpack.config.js
