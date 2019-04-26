@@ -98,11 +98,7 @@ module.exports = (env, args) => {
             //     },
             //     devDependencies: {}
             // })),
-            new BundleAnalyzerPlugin({
-                // analyzerMode: 'static',
-                // openAnalyzer: false,
-                // reportFilename: 'bundles-report/index.ejs'
-            }),
+            new BundleAnalyzerPlugin({}),
             // process.env.NODE_ENV_DOCKER ? new BundleAnalyzerPlugin({
             //     analyzerMode: 'static',
             //     openAnalyzer: false
