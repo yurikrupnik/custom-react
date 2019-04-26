@@ -5,8 +5,7 @@
   "main": "dist/main.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "clean": "rimraf dist/",
-    "prebuild": "npm run clean",
+    "prebuild": "rimraf dist/",
     "build": "webpack --env.prod",
     "lint": "eslint --ext js,jsx src",
     "prsetest": "npm run lint",
@@ -16,7 +15,7 @@
     "test:e2e": "jest e2e/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepack": "npm run build",
+    "prepublishOnly": "npm run build",
     "pap": "jest tester.test.js "
   },
   "husky": {
