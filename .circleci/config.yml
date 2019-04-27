@@ -21,10 +21,10 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: npm run test
-#      - run:
-#          name: code-coverage
-#          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
+          command: npm run test:coverage
+      - run:
+          name: code-coverage
+          command: 'coveralls'
       - store_artifacts:
           path: test-results.xml
           prefix: tests
