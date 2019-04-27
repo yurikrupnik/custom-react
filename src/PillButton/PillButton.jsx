@@ -24,8 +24,10 @@ const StyledButton = styled(Button)`
 
 const PillButton = (props) => {
     const { children } = props;
+    const [state, setState] = React.useState(false);
+    const handleClick = React.useCallback(() => setState(!state), [state]);
     return (
-        <StyledButton className={styles.root}>
+        <StyledButton className={`${styles.root} ${state ? 'red' : 'blue'}`} onClick={handleClick}>
             {children}
         </StyledButton>
     );

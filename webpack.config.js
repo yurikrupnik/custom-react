@@ -94,10 +94,7 @@ module.exports = (env) => {
                     conservativeCollapse: true
                 }
             }) : () => {},
-            isProd ? new BundleAnalyzerPlugin({
-                analyzerMode: 'static',
-                openAnalyzer: false
-            }) : new BundleAnalyzerPlugin({}),
+            isProd ? () => {} : new BundleAnalyzerPlugin({}),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
