@@ -1,14 +1,8 @@
 const path = require('path');
-// const webpack = require('webpack');
-// const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const GenerateJsonPlugin = require('generate-json-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// const json = require('./package');
-
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -19,7 +13,6 @@ module.exports = (env) => {
             'react-dom': 'react-dom',
             'prop-types': 'prop-types',
             'styled-components': 'styled-components',
-            // 'react-loadable': 'react-loadable',
             '@material-ui/core': '@material-ui/core'
         } : {},
         optimization: {
@@ -30,7 +23,7 @@ module.exports = (env) => {
         resolve: {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
-        devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
+        devtool: isProd ? '' : 'eval-cheap-module-source-map',
         entry: isProd ? './index.js' : './client.jsx',
         output: {
             filename: '[name].js',
@@ -94,7 +87,7 @@ module.exports = (env) => {
                     conservativeCollapse: true
                 }
             }) : () => {},
-            isProd ? () => {} : new BundleAnalyzerPlugin({}),
+            !isProd ? () => {} : new BundleAnalyzerPlugin({}),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
