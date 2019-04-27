@@ -24,7 +24,7 @@ jobs:
           command: npm run test
       - run:
           name: code-coverage
-          command: 'npm run test:coveralls'
+          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       - store_artifacts:
           path: test-results.xml
           prefix: tests
