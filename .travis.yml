@@ -12,7 +12,7 @@ jobs:
   include:
     - stage: Produce Coverage
       node_js: '11'
-      script: jest src --coverage --coverageReporters=text-lcov | coveralls
+      script: npm run test:coveralls
 
 
 #env:
