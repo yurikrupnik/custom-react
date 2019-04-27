@@ -19,19 +19,10 @@ module.exports = (env) => {
             'react-dom': 'react-dom',
             'prop-types': 'prop-types',
             'styled-components': 'styled-components',
-            'react-loadable': 'react-loadable',
-            jss: 'jss'
+            // 'react-loadable': 'react-loadable',
+            '@material-ui/core': '@material-ui/core'
         } : {},
         optimization: {
-            // splitChunks: {
-            //     cacheGroups: {
-            //         vendor: {
-            //             test: /[\\/]node_modules[\\/]/,
-            //             name: 'vendors',
-            //             chunks: 'all'
-            //         }
-            //     }
-            // },
             minimizer: [
                 new OptimizeCSSAssetsPlugin({})
             ]
