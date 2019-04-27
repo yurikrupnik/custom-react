@@ -1,6 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
+// const webpack = require('webpack');
+// const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -10,19 +10,19 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const json = require('./package');
 
 
-module.exports = (env, args) => {
+module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
-    // console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-    // console.log('env.NODE_ENV', env.NODE_ENV);
-    const isDebug = env ? !!env.debug : false;
     return {
         context: path.resolve(__dirname, 'src'),
-        // externals: {
-        //     react: 'react',
-        //     'react-dom': 'react-dom'
-        // },
+        externals: isProd ? {
+            react: 'react',
+            'react-dom': 'react-dom',
+            'prop-types': 'prop-types',
+            'styled-components': 'styled-components',
+            'react-loadable': 'react-loadable',
+            jss: 'jss'
+        } : {},
         optimization: {
-            // runtimeChunk: 'single',
             // splitChunks: {
             //     cacheGroups: {
             //         vendor: {
@@ -33,12 +33,9 @@ module.exports = (env, args) => {
             //     }
             // },
             minimizer: [
-                // new TerserPlugin(),
-
-                // new OptimizeCSSAssetsPlugin({})
+                new OptimizeCSSAssetsPlugin({})
             ]
         },
-        // target: 'web',
         resolve: {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
@@ -57,7 +54,7 @@ module.exports = (env, args) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader'],
+                    use: ['babel-loader', 'eslint-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -93,9 +90,6 @@ module.exports = (env, args) => {
             ]
         },
         plugins: [
-            // new webpack.DefinePlugin({
-            //     'process.env.PORT': JSON.stringify(process.env.PORT)
-            // }),
             !isProd ? new HtmlWebpackPlugin({
                 template: 'index.ejs',
                 filename: 'index.html',
@@ -109,34 +103,17 @@ module.exports = (env, args) => {
                     conservativeCollapse: true
                 }
             }) : () => {},
+            isProd ? new BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+                openAnalyzer: false
+            }) : new BundleAnalyzerPlugin({}),
             new MiniCssExtractPlugin({
-                // Options similar to the same options in webpackOptions.output
-                // both options are optional
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
-            }),
-            // new GenerateJsonPlugin('package.json', Object.assign({}, json, {
-            //     // main: filename,
-            //     scripts: {
-            //         start: 'node main.js'
-            //     },
-            //     devDependencies: {}
-            // })),
-            // new BundleAnalyzerPlugin({
-            // analyzerMode: 'static',
-            // openAnalyzer: false,
-            // reportFilename: 'bundles-report/index.ejs'
-            // }),
-            // process.env.NODE_ENV_DOCKER ? new BundleAnalyzerPlugin({
-            //     analyzerMode: 'static',
-            //     openAnalyzer: false
-            // }) : new BundleAnalyzerPlugin({})
+            })
         ],
-        devServer: { // when not prod - NODE_ENV_DOCKER taken from docker-compose env
-            // port: config.port + 1,
+        devServer: {
             open: true,
-            host: process.env.NODE_ENV_DOCKER ? '0.0.0.0' : 'localhost',
-            index: 'index.html',
             historyApiFallback: true
         }
     };
