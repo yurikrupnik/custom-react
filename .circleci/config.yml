@@ -22,9 +22,9 @@ jobs:
       - run:
           name: test
           command: npm run test:coverage
-      - run:
-          name: code-coverage
-          command: 'coveralls'
+#      - run:
+#          name: code-coverage
+#          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       - store_artifacts:
           path: test-results.xml
           prefix: tests
@@ -32,4 +32,5 @@ jobs:
           path: coverage
           prefix: coverage
       - store_test_results:
-          path: test-results.xml
+          path: clover.xml
+          prefix: coverage
