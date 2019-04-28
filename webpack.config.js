@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -87,7 +87,7 @@ module.exports = (env) => {
                     conservativeCollapse: true
                 }
             }) : () => {},
-            !isProd ? () => {} : new BundleAnalyzerPlugin({}),
+            // !isProd ? () => {} : new BundleAnalyzerPlugin({}),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
