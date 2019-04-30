@@ -10,18 +10,19 @@ module.exports = (env) => {
         context: path.resolve(__dirname, 'src'),
         externals: isProd ? {
             react: 'react',
-            'react-dom': 'react-dom',
+            '@material-ui/core/Button': '@material-ui/core/Button',
             'prop-types': 'prop-types',
             'styled-components': 'styled-components',
-            '@material-ui/core': '@material-ui/core'
         } : {},
         optimization: {
+            usedExports: true,
             minimizer: [
                 new OptimizeCSSAssetsPlugin({})
             ]
         },
         resolve: {
-            extensions: ['.json', '.js', '.jsx', '.css', '.scss']
+            extensions: ['.json', '.js', '.jsx', '.css', '.scss'],
+            modules: ['PillButton', 'BaseButton']
         },
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
         entry: isProd ? './index.js' : './client.jsx',
