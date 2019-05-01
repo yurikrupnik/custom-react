@@ -50,7 +50,7 @@
   "peerDependencies": {
     "react": "^16.8.6",
     "prop-types": "^15.x",
-    "@material-ui/core/Button": "^3.x",
+    "@material-ui/core": "^3.x",
     "styled-components": "^4.x"
   },
   "devDependencies": {

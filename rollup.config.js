@@ -18,14 +18,14 @@ export default {
             name: pkg.name
         }
     ],
-    extensions: ['.js', '.jsx'],
     plugins: [
         babel({
             exclude: 'node_modules/**'
         }),
+        // sass(),
         sass({
-            output: 'styles.sass'
+            output: 'dist/es/styles.scss'
         }),
-        resolve()
+        resolve(),
     ]
 };
