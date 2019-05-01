@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "some custom react stuff",
   "main": "dist/umd/index.js",
   "module": "dist/es/index.js",
