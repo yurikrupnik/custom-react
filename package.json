@@ -2,8 +2,8 @@
   "name": "custom-react",
   "version": "1.5.8",
   "description": "some custom react stuff",
-  "main": "dist/umd/main.js",
-  "module": "dist/es/main.js",
+  "main": "dist/umd/index.js",
+  "module": "dist/es/index.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
