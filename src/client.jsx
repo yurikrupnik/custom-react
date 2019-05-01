@@ -11,7 +11,7 @@ const Yebal = () => (
 
 const componentsChildren = {
     BaseButton: Yebal,
-    PillButton: () => ('alina'),
+    PillButton: () => ('random string'),
 };
 
 const componentsProps = {

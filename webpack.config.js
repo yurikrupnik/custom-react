@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -27,8 +27,8 @@ module.exports = (env) => {
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
         entry: isProd ? './index.js' : './client.jsx',
         output: {
-            filename: '[name].umd.js',
-            chunkFilename: '[name].umd.js',
+            filename: '[name].js',
+            chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
             library: 'custom-react',
@@ -39,7 +39,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader'],
+                    use: ['babel-loader', 'eslint-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -88,7 +88,7 @@ module.exports = (env) => {
                     conservativeCollapse: true
                 }
             }) : () => {},
-            // !isProd ? () => {} : new BundleAnalyzerPlugin({}),
+            !isProd ? () => {} : new BundleAnalyzerPlugin({}),
             new webpack.optimize.ModuleConcatenationPlugin(),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',

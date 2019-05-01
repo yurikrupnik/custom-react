@@ -65,11 +65,12 @@ typings/
 .circleci
 .storybook
 .idea
+src
 /.babelrc
 /.editorconfig
 /.eslintignore
 /.eslintrc
 /.travis.yml
-/tester.test.js
+/e2e.test.js
 rollup.config.js
 webpack.config.js

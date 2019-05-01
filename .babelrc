@@ -11,8 +11,7 @@
   ],
   "plugins": [
     "@babel/plugin-syntax-object-rest-spread",
-    "@babel/plugin-syntax-dynamic-import",
-    "react-loadable/babel"
+    "@babel/plugin-syntax-dynamic-import"
   ],
   "env": {
     "test": {
