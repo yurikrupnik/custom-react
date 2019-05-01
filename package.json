@@ -1,8 +1,9 @@
 {
   "name": "custom-react",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "some custom react stuff",
   "main": "dist/main.js",
+  "module": "dist/main.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
