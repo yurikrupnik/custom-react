@@ -4,21 +4,10 @@ import {render} from 'react-dom'; // eslint-disable-line
 import {BrowserRouter} from 'react-router-dom'; // eslint-disable-line
 import App from './components/App';
 import * as components from './index';
-
-const Yebal = () => (
-    <span>yebalaaaaa</span>
-);
-
-const componentsChildren = {
-    BaseButton: Yebal,
-    PillButton: () => ('alina'),
-};
-
-const componentsProps = {
-    BaseButton: {
-        shit() {}
-    }
-};
+import {
+    componentsChildren,
+    componentsProps
+} from './mockProps';
 
 const routes = Object.keys(components).reduce((acc, next) => {
     const Com = components[next];

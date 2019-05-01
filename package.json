@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "some custom react stuff",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -14,7 +14,7 @@
     "test": "jest src",
     "test:watch": "jest src --watch",
     "pretest:e2e": "npm run build",
-    "test:e2e": "jest e2e.test.js",
+    "test:e2e": "jest e2e.test.jsx --coverage",
     "test:coverage": "jest src --coverage",
     "test:coveralls": "jest src --coverage --coverageReporters=text-lcov | coveralls",
     "storybook": "start-storybook -p 6006",

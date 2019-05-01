@@ -71,5 +71,5 @@ src
 /.eslintignore
 /.eslintrc
 /.travis.yml
-/e2e.test.js
+/e2e.test.jsx
 webpack.config.js
