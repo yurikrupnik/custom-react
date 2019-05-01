@@ -70,6 +70,6 @@ typings/
 /.eslintignore
 /.eslintrc
 /.travis.yml
-/tester.test.js
+/e2e.test.js
 rollup.config.js
 webpack.config.js

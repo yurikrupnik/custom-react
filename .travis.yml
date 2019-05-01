@@ -13,6 +13,9 @@ jobs:
     - stage: Produce Coverage
       node_js: '11'
       script: npm run test:coveralls
+    - stage: E2E
+      node_js: '11'
+      script: npm run test:e2e
 
 
 #env:
