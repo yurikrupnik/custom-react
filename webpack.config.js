@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -21,14 +22,13 @@ module.exports = (env) => {
             ]
         },
         resolve: {
-            extensions: ['.json', '.js', '.jsx', '.css', '.scss'],
-            modules: ['PillButton', 'BaseButton']
+            extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
         entry: isProd ? './index.js' : './client.jsx',
         output: {
-            filename: '[name].js',
-            chunkFilename: '[name].js',
+            filename: '[name].umd.js',
+            chunkFilename: '[name].umd.js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
             library: 'custom-react',
@@ -39,7 +39,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader', 'eslint-loader'],
+                    use: ['babel-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -89,6 +89,7 @@ module.exports = (env) => {
                 }
             }) : () => {},
             // !isProd ? () => {} : new BundleAnalyzerPlugin({}),
+            new webpack.optimize.ModuleConcatenationPlugin(),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',

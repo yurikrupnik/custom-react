@@ -1,6 +1,9 @@
-import add, { BaseButton } from './dist/main';
+// import add, { BaseButton } from './dist/main';
+// import add, { BaseButton } from './dist/umd';
+import add, { BaseButton } from './dist/umd';
 
 // console.log('add', add);
+console.log('add', add);
 console.log('BaseButton', BaseButton);
 
 test('add', () => {

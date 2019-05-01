@@ -1,5 +1,4 @@
-// import Loadable from '../Loadable';
-import BaseButton from './BaseButton';
+import BaseButton from './BaseButton.jsx'; // eslint-disable-line
 
 // const BaseButton = Loadable({
 //     loader: import('./BaseButton')

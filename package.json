@@ -1,14 +1,16 @@
 {
   "name": "custom-react",
-  "version": "1.5.4",
+  "version": "1.5.8",
   "description": "some custom react stuff",
-  "main": "dist/main.js",
-  "module": "src/index.js",
+  "main": "dist/umd/main.js",
+  "module": "dist/es/main.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
-    "prebuild": "rimraf dist/",
-    "build": "webpack --env.prod",
+    "prebuild": "rimraf dist",
+    "build:webpack": "webpack --env.prod",
+    "pretranspile": "rimraf lib/",
+    "build": "rollup -c",
     "lint": "eslint --ext js,jsx src",
     "prsetest": "npm run lint",
     "test": "jest src",
@@ -22,8 +24,7 @@
     "pap": "jest tester.test.js "
   },
   "filess": [
-    "dist",
-    "src"
+    "dist"
   ],
   "husky": {
     "hooks": {
@@ -49,7 +50,7 @@
   "peerDependencies": {
     "react": "^16.8.6",
     "prop-types": "^15.x",
-    "@material-ui/core": "^3.x",
+    "@material-ui/core/Button": "^3.x",
     "styled-components": "^4.x"
   },
   "devDependencies": {
@@ -68,6 +69,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-uglify": "^1.0.2",
     "coveralls": "^3.0.3",
     "css-hot-loader": "^1.4.4",
@@ -89,6 +91,12 @@
     "react": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-testing-library": "^7.0.0",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-size-snapshot": "^0.8.0",
     "sass-loader": "^7.1.0",
     "storybook-readme": "^5.0.2",
     "styled-components": "^4.2.0",
