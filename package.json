@@ -2,15 +2,15 @@
   "name": "custom-react",
   "version": "1.6.1",
   "description": "some custom react stuff",
-  "main": "dist/umd/index.js",
+  "main": "dist/main.umd.js",
   "module": "dist/es/index.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
     "prebuild": "rimraf dist",
-    "build:webpack": "webpack --env.prod",
+    "build": "webpack --env.prod",
     "pretranspile": "rimraf lib/",
-    "build": "rollup -c",
+    "builds": "rollup -c",
     "lint": "eslint --ext js,jsx src",
     "prsetest": "npm run lint",
     "test": "jest src",
@@ -45,13 +45,12 @@
   },
   "homepage": "https://github.com/yurikrupnik/custom-react#readme",
   "dependencies": {
-    "@material-ui/core": "^4.0.0-beta.0",
     "react-loadable": "^5.5.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",
     "prop-types": "^15.x",
-    "@material-ui/core": "^4.0.0-beta.0",
+    "@material-ui/core": "^3.x",
     "styled-components": "^4.x"
   },
   "devDependencies": {
@@ -62,6 +61,7 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.4.4",
+    "@material-ui/core": "^3.9.3",
     "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-knobs": "^5.0.10",
     "@storybook/addon-links": "^5.0.10",
