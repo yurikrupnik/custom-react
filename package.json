@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "some custom react stuff",
   "main": "dist/main.js",
   "sideEffects": false,
@@ -66,6 +66,7 @@
     "@storybook/react": "^5.0.10",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "coveralls": "^3.0.3",
     "css-hot-loader": "^1.4.4",

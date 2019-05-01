@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-//
-// if (process.env.NODE_ENV) {
-// }
+
 import Button from '@material-ui/core/Button'; // eslint-disable-line
 import styles from './styles.scss';
 
@@ -31,7 +28,7 @@ const PillButton = (props) => {
     const [state, setState] = React.useState(false);
     const handleClick = React.useCallback(() => setState(!state), [state]);
     return (
-        <StyledButton className={`${styles.root} ${state ? 'red' : 'blue'}`} onClick={handleClick}>
+        <StyledButton className={`${styles.root}`} onClick={handleClick}>
             {children}
         </StyledButton>
     );

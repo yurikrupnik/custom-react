@@ -1,3 +1,3 @@
-import PillButton from './PillButton.jsx'; // eslint-disable-line
+import PillButton from './PillButton'; // eslint-disable-line
 
 export default PillButton;
