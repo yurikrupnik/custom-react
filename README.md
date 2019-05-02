@@ -7,6 +7,7 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/yurikrupnik/custom-react?branch=master)](https://bettercodehub.com/)
 [![dependencies Status](https://david-dm.org/yurikrupnik/custom-react/status.svg)](https://david-dm.org/yurikrupnik/custom-react)
 [![devDependencies Status](https://david-dm.org/yurikrupnik/custom-react/dev-status.svg)](https://david-dm.org/yurikrupnik/custom-react?type=dev)
+[![peerDependencies Status](https://david-dm.org/yurikrupnik/custom-react/peer-status.svg)](https://david-dm.org/yurikrupnik/custom-react?type=peer)
 
 # custom-react
 some custom react stuff
