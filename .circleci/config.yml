@@ -12,23 +12,26 @@ only-deploy-tags: &only-deploy-tags
     branches:
       ignore: /.*/
 
+node_modules_cache: &node_modules_cache
+  - run:
+      name: update-npm
+      command: 'sudo npm install -g npm@5'
+  - restore_cache:
+      key: dependency-cache-{{ checksum "package.json" }}
+  - run:
+      name: install-npm-wee
+      command: npm install
+  - save_cache:
+      key: dependency-cache-{{ checksum "package.json" }}
+      paths:
+        - ./node_modules
+
 jobs:
   build:
     <<: *defaults
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      <<: *node_modules_cache
       - run:
           name: build
           command: npm run build
@@ -44,18 +47,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      <<: *node_modules_cache
       - run:
           name: test
           command: npm run test
@@ -63,24 +55,13 @@ jobs:
           path: coverage
       - store_test_results:
           path: coverage/lcov-report
-#          destination: yebal
+  #          destination: yebal
 
   deploy_to_npm:
     <<: *defaults
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      <<: *node_modules_cache
       - run:
           name: build
           command: npm run build
