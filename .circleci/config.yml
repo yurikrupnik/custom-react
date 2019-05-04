@@ -23,7 +23,7 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: webpack build
+          name: build
           command: npm run build
       #      - run:
       #          name: code-coverage
@@ -86,3 +86,4 @@ workflows:
   test_all:
     jobs:
       - build
+      - test
