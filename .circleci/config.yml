@@ -92,7 +92,7 @@ workflows:
     - test
     - build
     - deploy
-      filters:
+      filters
         tags:
           only: /^v.*/
         branches:
