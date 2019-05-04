@@ -97,10 +97,10 @@ workflows:
       - test
       - deploy_to_npm:
           filters:
-            branches:
-              only: master
+#            branches:
+#              only: master
             tags:
-              only: /^v.*/
+              only: /.*/
           requires:
             - test
             - build
