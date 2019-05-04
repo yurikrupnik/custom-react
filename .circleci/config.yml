@@ -99,8 +99,8 @@ workflows:
     jobs:
       - test
       - build
-      - deploy:
-        filters:
+      - deploy
+#        filters:
 #          tags:
 #            only: /^v.*/
 #          branches:
