@@ -100,8 +100,8 @@ workflows:
       - test
       - build
       - deploy
-#        filters:
-#          tags:
-#            only: /^v.*/
-#          branches:
-#            only: master
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            only: master
