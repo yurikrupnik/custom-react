@@ -1,9 +1,13 @@
 version: 2.1
+
+defaults: &defaults
+  working_directory: /tmp
+  docker:
+    - image: circleci/node:11
+
 jobs:
   build:
-    working_directory: ~/mern-starter
-    docker:
-      - image: circleci/node:11
+    <<: *defaults
     steps:
       - checkout
       - run:
@@ -80,7 +84,7 @@ jobs:
           command: npm run build
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > /tmp/.npmrc
       - run:
           name: Publish package
           command: npm publish
