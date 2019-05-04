@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 
 defaults: &defaults
   working_directory: ~/tmp
@@ -82,7 +82,7 @@ jobs:
 
 
 workflows:
-  version: 2.1
+  version: 2
   jobs:
     - test
     - build
