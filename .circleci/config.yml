@@ -31,7 +31,7 @@ jobs:
       #      - store_artifacts:
       #          path: coverage
       - store_artifacts:
-          path: dist/bundles-report
+          path: dist
           prefix: someshit
 
   test:
