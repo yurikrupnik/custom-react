@@ -20,6 +20,11 @@
     "prepublishOnly": "npm run build",
     "bump": "npm version patch -m \"Upgrade to %s for reasons\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
+  },
   "filess": [
     "dist"
   ],
