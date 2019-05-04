@@ -85,18 +85,11 @@ workflows:
   version: 2.1
   jobs:
     - test
-#    - build
-    #    - deploy:
-    #      filters:
-    ##      tags:
-    ##        only: /^v.*/
-    #      branches:
-    #        ignore: /.*/
     - build:
-        filters:
-          branches:
-            only: master
+      filters:
+        branches:
+          only: master
     - deploy:
-        type: approval
-        requires:
-          - build
+      type: approval
+      requires:
+        - build
