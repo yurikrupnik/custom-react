@@ -96,9 +96,9 @@ workflows:
       - build
       - test
       - deploy_to_npm:
-#          filters:
-#            tags:
-#              only: /^v.*/
+          filters:
+            tags:
+              only: /^v.*/
           requires:
             - test
             - build
