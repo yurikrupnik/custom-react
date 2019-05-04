@@ -36,7 +36,6 @@ jobs:
       #          name: code-coverage
       #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       #      - store_artifacts:
-      #          path: coverage
       - store_artifacts:
           path: dist/bundles-report/index.html
           prefix: bundle-report-html
