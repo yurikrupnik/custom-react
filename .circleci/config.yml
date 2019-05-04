@@ -92,7 +92,7 @@ jobs:
 workflows:
   version: 2.1
   jobs:
-    - test:
+    - test
     - build
     - deploy:
       filters:
