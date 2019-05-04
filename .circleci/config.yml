@@ -92,12 +92,18 @@ jobs:
 
 workflows:
   version: 2.1
-  test_build:
+  un-tagged-build:
     jobs:
-      - test
-      - build
+      - test:
+        filters:
+          tags:
+            ignore: /^v.*/
+      - build:
+        filters:
+          tags:
+            ignore: /^v.*/
 
-  test-build-deploy:
+  tagged-build:
     jobs:
       - test:
         filters:
