@@ -84,8 +84,8 @@ workflows:
       - test
       - build
       - deploy:
-        requires:
-          - build
+#        requires:
+#          - build
         filters:
           tags:
             only: /^v.*/
