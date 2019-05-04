@@ -93,9 +93,9 @@ workflows:
   version: 2.1
   test_all:
     jobs:
-      - build
+      - build: *only-deploy-tags
       - test
-      - deploy:
-          <<: *only-deploy-tags
-          requires:
-            - build
+#      - deploy:
+#          <<: *only-deploy-tags
+#          requires:
+#            - build
