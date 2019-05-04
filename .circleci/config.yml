@@ -5,6 +5,11 @@ defaults: &defaults
   docker:
     - image: circleci/node:11
 
+default_cache: &default_cache
+  working_directory: ~/tmp
+  docker:
+    - image: circleci/node:11
+
 jobs:
   build:
     <<: *defaults
@@ -31,8 +36,8 @@ jobs:
       #      - store_artifacts:
       #          path: coverage
       - store_artifacts:
-          path: dist
-          prefix: someshit
+          path: dist/bundles-report/index.html
+          prefix: bundle-report-html
 
   test:
     <<: *defaults
