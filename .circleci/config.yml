@@ -88,8 +88,7 @@ workflows:
 #      - test
 #      - build
 
-  build_and_deploy
-    jobs:
-      - test
-      - build
-      - deploy
+  jobs:
+    - test
+    - build
+    - deploy
