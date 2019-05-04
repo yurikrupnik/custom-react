@@ -80,7 +80,7 @@ jobs:
           command: npm run build
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > /tmp/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
       - run:
           name: Publish package
           command: npm publish
@@ -102,6 +102,6 @@ workflows:
       - deploy:
         filters:
           tags:
-            only: /^v.*/
-          branches:
-            only: master
+            only: /v[0-9]+(\.[0-9]+)*/
+#          branches:
+#            only: master
