@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/mern-starter
@@ -89,7 +89,7 @@ jobs:
 
 
 workflows:
-  version: 2
+  version: 2.1
 #  test_all:
 #    jobs:
 #      - test
