@@ -40,9 +40,7 @@ jobs:
           path: test-results
 
   test:
-    working_directory: ~/mern-starter
-    docker:
-      - image: circleci/node:11
+    <<: *defaults
     steps:
       - checkout
       - run:
@@ -62,9 +60,7 @@ jobs:
           command: npm run test
 
   deploy:
-    working_directory: ~/mern-starter
-    docker:
-      - image: circleci/node:11
+    <<: *defaults
     steps:
       - checkout
       - run:
