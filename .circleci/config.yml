@@ -92,18 +92,24 @@ jobs:
 
 workflows:
   version: 2.1
-#  test_all:
-#    jobs:
-#      - test
-#      - build
+  test_build:
+    jobs:
+      - test
+      - build
 
   test-build-deploy:
     jobs:
       - test
+        filters:
+          tags:
+            only: /^v.*/
       - build
+        filters:
+          tags:
+            only: /^v.*/
       - deploy:
         filters:
           tags:
-            only: /v[0-9]+(\.[0-9]+)*/
+            only: /^v.*/
           branches:
-            only: master
+            ignore: /.*/
