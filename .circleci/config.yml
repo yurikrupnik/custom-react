@@ -55,7 +55,7 @@ jobs:
           command: npm run test
       - store_artifacts:
           path: coverage
-          destination: prefix
+          destination: coverage
 
   deploy:
     <<: *defaults
