@@ -102,4 +102,4 @@ workflows:
       - test
       - deploy_to_npm:
           requires:
-          - flow
+          - test
