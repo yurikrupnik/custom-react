@@ -79,7 +79,7 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: test
+          name: build
           command: npm run build
       - run:
           name: Authenticate with registry
@@ -95,3 +95,4 @@ workflows:
     jobs:
       - build
       - test
+      - deploy
