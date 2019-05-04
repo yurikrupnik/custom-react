@@ -82,5 +82,12 @@ workflows:
   test-build-deploy:
     jobs:
       - test
+      - build
       - deploy
-
+        requires:
+          - build
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            only: master
