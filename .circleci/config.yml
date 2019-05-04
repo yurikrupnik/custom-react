@@ -99,11 +99,11 @@ workflows:
 
   test-build-deploy:
     jobs:
-      - test
+      - test:
         filters:
           tags:
             only: /^v.*/
-      - build
+      - build:
         filters:
           tags:
             only: /^v.*/
