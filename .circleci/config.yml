@@ -62,16 +62,9 @@ jobs:
       - run:
           name: Publish package
           command: npm publish
-      #      - run:
-      #          name: code-coverage
-      #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
-      #      - store_artifacts:
-      #          path: coverage
       - store_artifacts:
           path: build
-      #          prefix: coverage
-#        - store_test_results:
-#            path: test-results
+
 
 workflows:
   version: 2
@@ -84,8 +77,6 @@ workflows:
       - test
       - build
       - deploy:
-#        requires:
-#          - build
         filters:
           tags:
             only: /^v.*/
