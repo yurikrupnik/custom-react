@@ -98,7 +98,7 @@ workflows:
   test-build-deploy:
     jobs:
       - test
-#      - build
+      - build
 #      - deploy
 #        filters:
 #          tags:
