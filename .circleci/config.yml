@@ -14,13 +14,6 @@ only-deploy-tags: &only-deploy-tags
     branches:
       ignore: /.*/
 
-#node_modules_cache: &node_modules_cache
-#  filters:
-#    tags:
-#      only: /^v.*/
-#    branches:
-#      ignore: /.*/
-
 jobs:
   build:
     <<: *defaults
@@ -41,10 +34,6 @@ jobs:
       - run:
           name: build
           command: npm run build
-      #      - run:
-      #          name: code-coverage
-      #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
-      #      - store_artifacts:
       - store_artifacts:
           path: dist/bundles-report/index.html
           prefix: bundle-report-html
@@ -67,14 +56,12 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: npm run test:coverage
+          command: npm run test -- --coverage
+      - codecov/upload
       - store_artifacts:
           path: coverage
       - store_test_results:
           path: coverage/lcov-report
-      - codecov/upload
-#          file: coverage/c
-#          destination: yebal
 
   deploy_to_npm:
     <<: *defaults
