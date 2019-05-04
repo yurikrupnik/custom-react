@@ -30,8 +30,8 @@ jobs:
       #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       #      - store_artifacts:
       #          path: coverage
-      - store_artifacts:
-          path: build
+#      - store_artifacts:
+#          path: build
       #          prefix: coverage
   #      - store_test_results:
   #          path: test-results
@@ -93,7 +93,7 @@ workflows:
     - build
     - deploy:
       filters:
-      tags:
-        only: /^v.*/
-#      branches:
-#        ignore: /.*/
+#      tags:
+#        only: /^v.*/
+      branches:
+        ignore: /.*/
