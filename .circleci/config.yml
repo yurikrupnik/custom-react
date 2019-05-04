@@ -61,6 +61,8 @@ jobs:
           command: npm run test
       - store_artifacts:
           path: coverage
+      - store_test_results:
+          path: coverage/lcov-report
 #          destination: yebal
 
   deploy_to_npm:
