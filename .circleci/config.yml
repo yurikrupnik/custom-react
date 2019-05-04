@@ -5,10 +5,10 @@ defaults: &defaults
   docker:
     - image: circleci/node:11
 
-default_cache: &default_cache
-  working_directory: ~/tmp
-  docker:
-    - image: circleci/node:11
+#default_cache: &default_cache
+#  working_directory: ~/tmp
+#  docker:
+#    - image: circleci/node:11
 
 jobs:
   build:
