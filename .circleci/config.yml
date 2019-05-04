@@ -55,7 +55,7 @@ jobs:
               - ./node_modules
         - run:
             name: test
-            command: npm run test:coverage
+            command: npm run build
         - run:
             name: Authenticate with registry
             command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
