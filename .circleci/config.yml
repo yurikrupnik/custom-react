@@ -85,10 +85,10 @@ workflows:
   version: 2.1
   jobs:
     - test
-    - build:
-      filters:
-        branches:
-          only: master
+    - build
+#      filters:
+#        branches:
+#          only: master
     - deploy:
       type: approval
       requires:
