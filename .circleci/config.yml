@@ -100,4 +100,6 @@ workflows:
     jobs:
       - build
       - test
-      - deploy_to_npm
+      - deploy_to_npm:
+          requires:
+          - flow
