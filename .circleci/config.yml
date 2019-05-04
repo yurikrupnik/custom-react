@@ -98,4 +98,4 @@ workflows:
       - deploy:
           <<: *only-deploy-tags
           requires:
-            - build
+            - test
