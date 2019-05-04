@@ -29,9 +29,9 @@ jobs:
 #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       - store_artifacts:
           path: coverage
-#      - store_artifacts:
-#          path: coverage
-#          prefix: coverage
-#      - store_test_results:
-#          path: clover.xml
-#          prefix: coverage
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: clover.xml
+          prefix: coverage
