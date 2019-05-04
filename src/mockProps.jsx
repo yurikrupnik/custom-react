@@ -5,7 +5,7 @@ const Example = () => (
 );
 const componentsChildren = {
     BaseButton: Example,
-    PillButton: () => ('Label'),
+    PillButton: () => ('Label')
 };
 
 const componentsProps = {
