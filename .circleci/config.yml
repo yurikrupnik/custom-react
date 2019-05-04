@@ -86,10 +86,4 @@ workflows:
   jobs:
     - test
     - build
-#      filters:
-#        branches:
-#          only: master
     - deploy
-#      type: approval
-#      requires:
-#         build
