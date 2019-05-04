@@ -31,8 +31,8 @@ jobs:
       #      - store_artifacts:
       #          path: coverage
       - store_artifacts:
-          path: reports
-          prefix: dist/bundles-report
+          path: dist/bundles-report
+          prefix: someshit
 
   test:
     <<: *defaults
@@ -54,8 +54,8 @@ jobs:
           name: test
           command: npm run test
       - store_artifacts:
-          path: reports
-          destination: coverage
+          path: coverage
+          destination: yebal
 
   deploy:
     <<: *defaults
