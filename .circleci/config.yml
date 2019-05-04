@@ -91,30 +91,13 @@ jobs:
 
 workflows:
   version: 2.1
-  un-tagged-build:
-    jobs:
-      - test:
-        filters:
-          tags:
-            ignore: /^v.*/
-      - build:
-        filters:
-          tags:
-            ignore: /^v.*/
+  jobs:
+    - test:
+    - build:
 
-  tagged-build:
-    jobs:
-      - test:
-        filters:
-          tags:
-            only: /^v.*/
-      - build:
-        filters:
-          tags:
-            only: /^v.*/
-      - deploy:
-        filters:
-          tags:
-            only: /^v.*/
-          branchs:
-            ignore: /.*/
+    - deploy:
+      filters:
+        tags:
+          only: /^v.*/
+        branches:
+          ignore: /.*/
