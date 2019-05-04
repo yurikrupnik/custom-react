@@ -3,7 +3,7 @@
   "version": "1.6.6",
   "description": "some custom react stuff",
   "main": "dist/main.js",
-  "module": "dist/main.js",
+  "module": "dist/maisn.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
