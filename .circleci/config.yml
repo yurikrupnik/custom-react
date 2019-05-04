@@ -98,8 +98,8 @@ workflows:
   test-build-deploy:
     jobs:
       - test
-      - build
-      - deploy
+#      - build
+#      - deploy
 #        filters:
 #          tags:
 #            only: /^v.*/
