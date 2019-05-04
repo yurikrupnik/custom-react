@@ -58,8 +58,8 @@ jobs:
       - run:
           name: test
           command: npm run test
-      post:
-        - bash <(curl -s https://codecov.io/bash)
+#      post:
+#        - bash <(curl -s https://codecov.io/bash)
 
   deploy:
     <<: *defaults
