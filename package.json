@@ -18,7 +18,8 @@
     "test:coveralls": "jest src --coverage --coverageReporters=text-lcov | coveralls",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "bump": "npm version patch -m \"Upgrade to %s for reasons\""
   },
   "filess": [
     "dist"

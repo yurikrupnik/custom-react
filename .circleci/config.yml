@@ -97,9 +97,6 @@ workflows:
       - test
       - deploy_to_npm:
           <<: *only-deploy-tags
-#          filters:
-#            tags:
-#              only: /.*/
           requires:
             - test
             - build
