@@ -1,9 +1,14 @@
-version: 2.1
+version: 2
 
 defaults: &defaults
   working_directory: ~/tmp
   docker:
     - image: circleci/node:11
+
+#default_cache: &default_cache
+#  working_directory: ~/tmp
+#  docker:
+#    - image: circleci/node:11
 
 jobs:
   build:
@@ -23,21 +28,16 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: test
-          command: npm run test:coverage
-      - run:
-          name: e2e
-          command: npm run test:e2e
+          name: build
+          command: npm run build
       #      - run:
       #          name: code-coverage
       #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       #      - store_artifacts:
       #          path: coverage
       - store_artifacts:
-          path: coverage
-      #          prefix: coverage
-      - store_test_results:
-          path: test-results
+          path: dist/bundles-report/index.html
+          prefix: bundle-report-html
 
   test:
     <<: *defaults
@@ -58,10 +58,11 @@ jobs:
       - run:
           name: test
           command: npm run test
-#      post:
-#        - bash <(curl -s https://codecov.io/bash)
+      - store_artifacts:
+          path: coverage
+#          destination: yebal
 
-  deploy:
+  deploy_to_npm:
     <<: *defaults
     steps:
       - checkout
@@ -78,43 +79,28 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: test
+          name: build
           command: npm run build
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
-      - run:
-          name: Publish package
-          command: npm publish
-#      - store_artifacts:
-#          path: build
+#      - run:
+#          name: Publish package
+#          command: npm publish
+
 
 workflows:
-  version: 2.1
-  un-tagged-build:
+  version: 2
+  test_all:
     jobs:
-      - test:
-        filters:
-          tags:
-            ignore: /^v.*/
-      - build:
-        filters:
-          tags:
-            ignore: /^v.*/
-
-  tagged-build:
-    jobs:
-      - test:
-        filters:
-          tags:
-            only: /^v.*/
-      - build:
-        filters:
-          tags:
-            only: /^v.*/
-      - deploy:
-        filters:
-          tags:
-            only: /^v.*/
-          branchs:
-            ignore: /.*/
+      - build
+      - test
+      - deploy_to_npm:
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /^v.*/
+          requires:
+            - test
+            - build

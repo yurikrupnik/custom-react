@@ -12,7 +12,6 @@
     "lint": "eslint --ext js,jsx src",
     "prsetest": "npm run lint",
     "test": "jest src",
-    "test:watch": "jest src --watch",
     "pretest:e2e": "npm run build",
     "test:e2e": "jest e2e.test.jsx --coverage",
     "test:coverage": "jest src --coverage",
