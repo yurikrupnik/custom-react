@@ -53,6 +53,9 @@ jobs:
       - run:
           name: test
           command: npm run test
+      - store_artifacts:
+          path: coverage
+          destination: prefix
 
   deploy:
     <<: *defaults
