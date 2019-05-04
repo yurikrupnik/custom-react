@@ -10,7 +10,7 @@ only-deploy-tags: &only-deploy-tags
     tags:
       only: /^v.*/
     branches:
-      ignore: /.*/
+      only: master
 
 jobs:
   build:
@@ -97,9 +97,6 @@ workflows:
       - test
       - deploy_to_npm:
           <<: *only-deploy-tags
-#          filters:
-#            tags:
-#              only: /.*/
           requires:
             - test
             - build
