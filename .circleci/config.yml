@@ -5,10 +5,12 @@ defaults: &defaults
   docker:
     - image: circleci/node:11
 
-#default_cache: &default_cache
-#  working_directory: ~/tmp
-#  docker:
-#    - image: circleci/node:11
+only-deploy-tags: &only-deploy-tags
+  filters:
+    tags:
+      only: /^deploy-.*/
+    branches:
+      ignore: /.*/
 
 jobs:
   build:
@@ -92,12 +94,13 @@ workflows:
   version: 2
   test_all:
     jobs:
-      - build
+      - build: *only-deploy-tags
       - test
       - deploy_to_npm:
-          filters:
-            tags:
-              only: /.*/
+          <<: *only-deploy-tags
+#          filters:
+#            tags:
+#              only: /.*/
           requires:
             - test
             - build
