@@ -62,7 +62,7 @@ jobs:
           path: coverage
 #          destination: yebal
 
-  deploy:
+  deploy_to_npm:
     <<: *defaults
     filters:
       tags:
@@ -100,4 +100,4 @@ workflows:
     jobs:
       - build
       - test
-      - deploy
+      - deploy_to_npm
