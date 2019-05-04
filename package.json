@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.6.8",
+  "version": "1.6.11",
   "description": "some custom react stuff",
   "main": "dist/main.js",
   "module": "dist/main.js",
