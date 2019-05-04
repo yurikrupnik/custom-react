@@ -30,9 +30,9 @@ jobs:
       #          command: 'jest src --coverage --coverageReporters=text-lcov | coveralls'
       #      - store_artifacts:
       #          path: coverage
-      #      - store_artifacts:
-      #          path: build
-      #          prefix: coverage
+      - store_artifacts:
+          path: reports
+          prefix: dist/bundles-report
 
   test:
     <<: *defaults
@@ -54,7 +54,7 @@ jobs:
           name: test
           command: npm run test
       - store_artifacts:
-          path: coverage
+          path: reports
           destination: coverage
 
   deploy:
