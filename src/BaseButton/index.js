@@ -1,7 +1,8 @@
-import BaseButton from './BaseButton';
+// import BaseButton from './BaseButton';
+import Loadable from '../Loadable';
 
-// const BaseButton = Loadable({
-//     loader: import('./BaseButton')
-// });
+const BaseButton = Loadable({
+    loader: import('./BaseButton')
+});
 
 export default BaseButton;
