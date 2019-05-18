@@ -73,3 +73,4 @@ src
 /.travis.yml
 /e2e.test.jsx
 webpack.config.js
+rollup.config.js
