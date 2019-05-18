@@ -25,12 +25,16 @@ module.exports = (env) => {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
-        entry: isProd ? './index.js' : './client.jsx',
+        // entry: isProd ? './index.js' : './client.jsx',
+        entry: [
+            './BaseButton/index.js',
+            './PillButton/index.js',
+        ],
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
-            publicPath: '/',
+            publicPath: '',
             library: 'custom-react',
             libraryTarget: 'umd'
         },

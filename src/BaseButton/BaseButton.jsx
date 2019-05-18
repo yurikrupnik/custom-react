@@ -15,4 +15,5 @@ BaseButton.propTypes = {
     onClick: PropTypes.func.isRequired
 };
 
+// module.exports = BaseButton
 export default BaseButton;
