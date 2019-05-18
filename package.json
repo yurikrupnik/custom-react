@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "description": "some custom react stuff",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -26,7 +26,7 @@
       "pre-commit": "npm run test"
     }
   },
-  "filess": [
+  "files": [
     "dist"
   ],
   "repository": {

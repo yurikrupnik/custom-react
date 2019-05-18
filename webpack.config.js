@@ -26,16 +26,21 @@ module.exports = (env) => {
         },
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
         // entry: isProd ? './index.js' : './client.jsx',
-        entry: [
-            './BaseButton/index.js',
-            './PillButton/index.js',
-        ],
+        // entry: [
+        //     './BaseButton/index.js',
+        //     './PillButton/index.js',
+        // ],
+        entry: {
+            BaseButton: './BaseButton/index.js',
+            PillButton: './PillButton/index.js'
+            // 'module/b/index': 'module/b/index.js',
+        },
         output: {
             filename: '[name].js',
-            chunkFilename: '[name].js',
+            // chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
-            library: 'custom-react',
+            library: 'custom-react/[name]',
             libraryTarget: 'umd'
         },
         mode: isProd ? 'production' : 'development',
