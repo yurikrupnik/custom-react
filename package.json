@@ -1,8 +1,8 @@
 {
   "name": "custom-react",
-  "version": "1.8.2",
+  "version": "1.8.4",
   "description": "some custom react stuff",
-  "main": "dist/main.js",
+  "main": "dist/BaseButton.js",
   "module": "dist/main.js",
   "sideEffects": false,
   "scripts": {

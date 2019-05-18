@@ -1,6 +1,7 @@
 // // import BaseButton from './BaseButton';
 export { default as BaseButton } from './BaseButton';
 export { default as PillButton } from './PillButton';
+export { default as ButtonGroup } from './ButtonGroup';
 // import PillButton from './PillButton';
 
 // function add(a, b) {
