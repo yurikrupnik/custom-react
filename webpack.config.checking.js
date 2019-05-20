@@ -1,11 +1,9 @@
-// import D3Component from "./src/D3Component";
-
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -16,7 +14,6 @@ module.exports = (env) => {
             '@material-ui/core/Button': '@material-ui/core/Button',
             'prop-types': 'prop-types',
             'styled-components': 'styled-components',
-            // 'd3': 'd3',
         } : {},
         optimization: {
             usedExports: true,
@@ -34,15 +31,14 @@ module.exports = (env) => {
         //     './PillButton/index.js',
         // ],
         entry: {
-            'cmj/index': './index.js',
-            'BaseButton/index': './BaseButton/index.js',
-            'PillButton/index': './PillButton/index.js',
-            'ButtonGroup/index': './ButtonGroup/index.js',
-            'DataGraph/index': './DataGraph/index.js',
+            // 'BaseButton/index': './BaseButton/index.js',
+            // 'PillButton/inedx': './PillButton/index.js',
+            // 'ButtonGroup/index': './ButtonGroup/index.js'
+            // 'module/b/index': 'module/b/index.js',
         },
         output: {
             filename: '[name].js',
-            chunkFilename: '[name].js',
+            // chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
             library: 'custom-react/[name]',
@@ -53,7 +49,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader'],
+                    use: ['babel-loader', 'eslint-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -89,7 +85,7 @@ module.exports = (env) => {
             ]
         },
         plugins: [
-            !isProd ? new HtmlWebpackPlugin({
+            new HtmlWebpackPlugin({
                 template: 'index.ejs',
                 filename: 'index.html',
                 meta: {
@@ -101,8 +97,8 @@ module.exports = (env) => {
                     collapseWhitespace: true,
                     conservativeCollapse: true
                 }
-            }) : () => {},
-            new BundleAnalyzerPlugin({}),
+            }),
+            // !isProd ? () => {} : new BundleAnalyzerPlugin({}),
             new webpack.optimize.ModuleConcatenationPlugin(),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
