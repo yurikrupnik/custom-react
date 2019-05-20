@@ -1,20 +1,12 @@
 // // import BaseButton from './BaseButton';
-import Loadable from './Loadable';
+// import Loadable from './Loadable';
 // if (process.env.NODE_ENV === 'production') {
-const BaseButton = Loadable({
-    loader: import(/* webpackChunkName: "BaseButton" */'./BaseButton')
-});
-const PillButton = Loadable({
-    loader: import(/* webpackChunkName: "PillButton" */'./PillButton')
-});
+const BaseButton = import(/* webpackChunkName: "BaseButton" */'./BaseButton');
+const PillButton = import(/* webpackChunkName: "PillButton" */'./PillButton');
 
-const DataGraph = Loadable({
-    loader: import(/* webpackChunkName: "DataGraph" */'./DataGraph')
-});
+const DataGraph = import(/* webpackChunkName: "DataGraph" */'./DataGraph');
 
-const ButtonGroup = Loadable({
-    loader: import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup')
-});
+const ButtonGroup = import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup');
 // }
 
 // export { default as BaseButton } from './BaseButton';

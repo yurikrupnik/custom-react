@@ -45,7 +45,7 @@ module.exports = (env) => {
             chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
-            library: 'custom-react/[name]',
+            library: 'custom-react',
             libraryTarget: 'umd'
         },
         mode: isProd ? 'production' : 'development',

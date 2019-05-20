@@ -1,9 +1,9 @@
 {
   "name": "custom-react",
-  "version": "1.8.6",
+  "version": "1.8.9",
   "description": "some custom react stuff",
-  "main": "dist/cmj/index.js",
-  "module": "dist/cmj/index.js",
+  "main": "dist/main.js",
+  "module": "dist/main.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
