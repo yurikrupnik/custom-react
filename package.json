@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "some custom react stuff",
   "main": "dist/cmj/index.js",
   "module": "dist/cmj/index.js",
