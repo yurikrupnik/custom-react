@@ -1,18 +1,18 @@
 // // import BaseButton from './BaseButton';
 // import Loadable from './Loadable';
 // if (process.env.NODE_ENV === 'production') {
-const BaseButton = import(/* webpackChunkName: "BaseButton" */'./BaseButton');
-const PillButton = import(/* webpackChunkName: "PillButton" */'./PillButton');
-
-const DataGraph = import(/* webpackChunkName: "DataGraph" */'./DataGraph');
-
-const ButtonGroup = import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup');
+// const BaseButton = import(/* webpackChunkName: "BaseButton" */'./BaseButton');
+// const PillButton = import(/* webpackChunkName: "PillButton" */'./PillButton');
+//
+// const DataGraph = import(/* webpackChunkName: "DataGraph" */'./DataGraph');
+//
+// const ButtonGroup = import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup');
 // }
 
-// export { default as BaseButton } from './BaseButton';
-// export { default as PillButton } from './PillButton';
-// export { default as ButtonGroup } from './ButtonGroup';
-// export { default as DataGraph } from './DataGraph';
+export { default as BaseButton } from './BaseButton';
+export { default as PillButton } from './PillButton';
+export { default as ButtonGroup } from './ButtonGroup';
+export { default as DataGraph } from './DataGraph';
 // import PillButton from './PillButton';
 
 // function add(a, b) {
@@ -27,6 +27,6 @@ const ButtonGroup = import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup')
 //     BaseButton,
 // };
 
-export {
-    BaseButton, PillButton, DataGraph, ButtonGroup
-};
+// export {
+//     BaseButton, PillButton, DataGraph, ButtonGroup
+// };

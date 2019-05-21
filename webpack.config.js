@@ -5,6 +5,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env) => {
@@ -20,6 +21,9 @@ module.exports = (env) => {
         } : {},
         optimization: {
             usedExports: true,
+            // splitChunks: {
+            //     chunks: 'all'
+            // },
             minimizer: [
                 new OptimizeCSSAssetsPlugin({})
             ]
@@ -28,18 +32,18 @@ module.exports = (env) => {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
-        entry: isProd ? './index.js' : './client.jsx',
+        // entry: isProd ? './index.js' : './client.jsx',
         // entry: [
         //     './BaseButton/index.js',
         //     './PillButton/index.js',
         // ],
-        // entry: {
-        //     'cmj/index': './index.js',
-            // 'BaseButton/index': './BaseButton/index.js',
-            // 'PillButton/index': './PillButton/index.js',
-            // 'ButtonGroup/index': './ButtonGroup/index.js',
-            // 'DataGraph/index': './DataGraph/index.js',
-        // },
+        entry: {
+            'cmj/index': './index.js',
+            'BaseButton/index': './BaseButton/index.js',
+            'PillButton/index': './PillButton/index.js',
+            'ButtonGroup/index': './ButtonGroup/index.js',
+            'DataGraph/index': './DataGraph/index.js',
+        },
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',
@@ -103,6 +107,9 @@ module.exports = (env) => {
                 }
             }) : () => {},
             new BundleAnalyzerPlugin({}),
+            new CopyPlugin([
+                { from: 'index.js' }
+            ]),
             new webpack.optimize.ModuleConcatenationPlugin(),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
