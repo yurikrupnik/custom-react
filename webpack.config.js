@@ -38,7 +38,7 @@ module.exports = (env) => {
         //     './PillButton/index.js',
         // ],
         entry: {
-            'cmj/index': './index.js',
+            main: './index.js',
             'BaseButton/index': './BaseButton/index.js',
             'PillButton/index': './PillButton/index.js',
             'ButtonGroup/index': './ButtonGroup/index.js',
@@ -49,7 +49,7 @@ module.exports = (env) => {
             chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/',
-            library: 'custom-react',
+            library: 'custom-react/[name]',
             libraryTarget: 'umd'
         },
         mode: isProd ? 'production' : 'development',
@@ -106,7 +106,7 @@ module.exports = (env) => {
                     conservativeCollapse: true
                 }
             }) : () => {},
-            new BundleAnalyzerPlugin({}),
+            // new BundleAnalyzerPlugin({}),
             new CopyPlugin([
                 { from: 'index.js' }
             ]),

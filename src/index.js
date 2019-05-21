@@ -9,10 +9,12 @@
 // const ButtonGroup = import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup');
 // }
 
-export { default as BaseButton } from './BaseButton';
-export { default as PillButton } from './PillButton';
-export { default as ButtonGroup } from './ButtonGroup';
-export { default as DataGraph } from './DataGraph';
+import BaseButton from './BaseButton';
+
+export default BaseButton;
+// export { default as PillButton } from './PillButton';
+// export { default as ButtonGroup } from './ButtonGroup';
+// export { default as DataGraph } from './DataGraph';
 // import PillButton from './PillButton';
 
 // function add(a, b) {
