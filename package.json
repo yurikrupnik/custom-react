@@ -1,9 +1,9 @@
 {
   "name": "custom-react",
-  "version": "2.0.3",
+  "version": "2.0.8",
   "description": "some custom react stuff",
-  "main": "dist/main.cjs.js",
-  "module": "dist/main.esm.js",
+  "main": "dist/cjs/main.js",
+  "module": "dist/esm/main.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
@@ -80,6 +80,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.7.1",
     "lint-staged": "^8.1.5",
+    "lodash.kebabcase": "^4.1.1",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -90,6 +91,7 @@
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-generate-package-json": "^3.1.2",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-sass": "^1.2.2",
     "sass-loader": "^7.1.0",

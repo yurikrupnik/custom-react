@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // const CopyPlugin = require('copy-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -36,10 +36,10 @@ module.exports = (env) => {
         // ],
         entry: {
             main: './index.js',
-            'BaseButton/index': './BaseButton/index.js',
-            'PillButton/index': './PillButton/index.js',
-            'ButtonGroup/index': './ButtonGroup/index.js',
-            'DataGraph/index': './DataGraph/index.js',
+            // 'BaseButton/index': './BaseButton/index.js',
+            // 'PillButton/index': './PillButton/index.js',
+            // 'ButtonGroup/index': './ButtonGroup/index.js',
+            // 'DataGraph/index': './DataGraph/index.js',
         },
         output: {
             filename: '[name].js',
