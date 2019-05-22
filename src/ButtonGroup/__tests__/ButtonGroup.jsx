@@ -1,5 +1,5 @@
 import React from 'react'; // eslint-disable-line
-import {render, cleanup} from 'react-testing-library';
+import { render, cleanup } from 'react-testing-library';
 import Component from '../ButtonGroup';
 
 afterEach(cleanup);
@@ -8,15 +8,13 @@ test(`render ${Component.name} Component`, () => {
     const props = {
         data: [
             {
-                onclik: function () {},
+                onclick: jest.fn(),
                 label: 'as',
-                children: () => {
-                    return (
-                        <div>
-                            hello
-                        </div>
-                    );
-                }
+                children: () => (
+                    <div>
+                        hello
+                    </div>
+                )
             }
         ]
     };

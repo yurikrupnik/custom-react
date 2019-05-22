@@ -10,9 +10,7 @@
     ["@babel/preset-react"]
   ],
   "plugins": [
-    "@babel/plugin-syntax-object-rest-spread",
-    "@babel/plugin-syntax-dynamic-import",
-    "react-loadable/babel"
+    "@babel/plugin-syntax-object-rest-spread"
   ],
   "env": {
     "test": {

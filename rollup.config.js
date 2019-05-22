@@ -4,7 +4,7 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 // import css from 'rollup-plugin-css-only';
 import sass from 'rollup-plugin-sass';
-// import pkg from './package.json';
+import pkg from './package.json';
 
 // const NODE_ENV = process.env.NODE_ENV || 'development';
 // const outputFile = NODE_ENV === 'production' ? './lib/prod.js' : './lib/dev.js';
@@ -219,5 +219,5 @@ export default {
             // insert: true
         })
     ],
-    external: filter
-}
+    external: Object.keys(pkg.peerDependencies)
+};
