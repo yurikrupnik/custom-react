@@ -9,21 +9,21 @@
 // const ButtonGroup = import(/* webpackChunkName: "ButtonGroup" */'./ButtonGroup');
 // }
 
-// import BaseButton from './BaseButton';
-// import PillButton from './PillButton';
-// import ButtonGroup from './ButtonGroup';
-// import DataGraph from './DataGraph';
-//
-// export {
-//     BaseButton,
-//     PillButton,
-//     DataGraph,
-//     ButtonGroup
-// };
-export { default as PillButton } from './PillButton';
-export { default as ButtonGroup } from './ButtonGroup';
-export { default as DataGraph } from './DataGraph';
-export { default as BaseButton } from './BaseButton';
+import BaseButton from './BaseButton';
+import PillButton from './PillButton';
+import ButtonGroup from './ButtonGroup';
+import DataGraph from './DataGraph';
+
+export default {
+    BaseButton,
+    PillButton,
+    DataGraph,
+    ButtonGroup
+};
+// export { default as PillButton } from './PillButton';
+// export { default as ButtonGroup } from './ButtonGroup';
+// export { default as DataGraph } from './DataGraph';
+// export { default as BaseButton } from './BaseButton';
 // import PillButton from './PillButton';
 
 // function add(a, b) {
