@@ -5,8 +5,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const CopyPlugin = require('copy-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -17,13 +17,10 @@ module.exports = (env) => {
             '@material-ui/core/Button': '@material-ui/core/Button',
             'prop-types': 'prop-types',
             'styled-components': 'styled-components',
-            // d3: 'd3',
+            d3: 'd3',
         } : {},
         optimization: {
             usedExports: true,
-            // splitChunks: {
-            //     chunks: 'all'
-            // },
             minimizer: [
                 new OptimizeCSSAssetsPlugin({})
             ]
@@ -107,9 +104,9 @@ module.exports = (env) => {
                 }
             }) : () => {},
             // new BundleAnalyzerPlugin({}),
-            new CopyPlugin([
-                { from: 'index.js' }
-            ]),
+            // new CopyPlugin([
+            //     { from: 'index.js' }
+            // ]),
             new webpack.optimize.ModuleConcatenationPlugin(),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',

@@ -10,8 +10,16 @@
 // }
 
 import BaseButton from './BaseButton';
+import PillButton from './PillButton';
+import ButtonGroup from './ButtonGroup';
+import DataGraph from './DataGraph';
 
-export default BaseButton;
+export {
+    BaseButton,
+    PillButton,
+    DataGraph,
+    ButtonGroup
+};
 // export { default as PillButton } from './PillButton';
 // export { default as ButtonGroup } from './ButtonGroup';
 // export { default as DataGraph } from './DataGraph';
