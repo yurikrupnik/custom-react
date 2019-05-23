@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BaseButton from '../BaseButton';
+import PillButton from '../PillButton';
 
 const ButtonGroup = (props) => {
     const { data } = props;
     return data.map(v => (
-        <BaseButton onClick={v.onClick}>{v.children}</BaseButton>
+        <PillButton key={v.title} onClick={v.onClick}>{v.title}</PillButton>
     ));
 };
 

@@ -3,12 +3,18 @@ import resolve from 'rollup-plugin-node-resolve';
 import sass from 'rollup-plugin-sass';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 import kebabCase from 'lodash/kebabCase';
+import reduce from 'lodash/reduce'; // eslint-disable-line
+import pkg from './package.json';
 
-const filter = ['react', 'prop-types', 'd3', '@material/ui', 'styled-components', '@material-ui/core/Button'];
+const filter = reduce(
+    Object.assign({}, pkg.peerDependencies, pkg.dependencies),
+    (acc, val, key) => acc.concat(key), []
+).concat([
+    '@material-ui/core/Button'
+]);
 
 const cjs = 'index.cjs.js';
 const esm = 'index.esm.js';
-const umd = 'index.umd.js';
 
 function createRollupOutput(module) {
     return {
@@ -21,11 +27,6 @@ function createRollupOutput(module) {
             {
                 file: `dist/${module}/${cjs}`,
                 format: 'cjs'
-            },
-            {
-                file: `dist/${module}/${umd}`,
-                format: 'umd',
-                name: kebabCase(module)
             }
         ],
         plugins: [
@@ -59,16 +60,12 @@ export default [
         output: [
             {
                 file: 'dist/cjs/main.js',
-                format: 'cjs'
+                format: 'umd',
+                name: 'asd'
             },
             {
                 file: 'dist/esm/main.js',
                 format: 'esm'
-            },
-            {
-                file: 'dist/umd/main.js',
-                format: 'umd',
-                name: 'custom-react'
             }
         ],
         plugins: [

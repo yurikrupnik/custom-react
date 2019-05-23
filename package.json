@@ -1,6 +1,6 @@
 {
   "name": "custom-react",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "some custom react stuff",
   "main": "cjs/main.js",
   "module": "esm/main.js",
@@ -27,13 +27,7 @@
     }
   },
   "files": [
-    "dist/PillButton",
-    "dist/ButtonGroup",
-    "dist/DataGraph",
-    "dist/BaseButton",
-    "dist/esm",
-    "dist/cjs",
-    "dist/umd"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -86,6 +80,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.7.1",
     "lint-staged": "^8.1.5",
+    "lodash": "^4.17.11",
     "lodash.kebabcase": "^4.1.1",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.11.0",

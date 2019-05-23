@@ -11,6 +11,18 @@ const componentsChildren = {
 const componentsProps = {
     BaseButton: {
         onClick() {}
+    },
+    ButtonGroup: {
+        data: [
+            {
+                onClick: function () {},
+                title: 'as1'
+            },
+            {
+                onClick: function () {},
+                title: 'as2'
+            }
+        ]
     }
 };
 

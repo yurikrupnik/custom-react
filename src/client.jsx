@@ -9,17 +9,17 @@ import {
     componentsProps
 } from './mockProps';
 
-// console.log('components', components);
-
 const routes = Object.keys(components).reduce((acc, next) => {
     const Com = components[next];
     // console.log('Com', Com);
+console.log('next', next);
+console.log('Com', Com);
 
     const { propTypes } = Com; // eslint-disable-line
     if (!propTypes) {
         return acc;
     }
-    const Children = componentsChildren[next];
+    const Children = componentsChildren[next] || null;
     const p = componentsProps[next] || {};
     return acc.concat({
         path: `/${next}`,
