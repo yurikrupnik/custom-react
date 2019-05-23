@@ -1,9 +1,9 @@
 {
   "name": "custom-react",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "some custom react stuff",
-  "main": "cjs/main.js",
-  "module": "esm/main.js",
+  "main": "dist/cjs/main.js",
+  "module": "dist/esm/main.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
