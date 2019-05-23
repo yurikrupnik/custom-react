@@ -8,6 +8,7 @@ const filter = ['react', 'prop-types', 'd3', '@material/ui', 'styled-components'
 
 const cjs = 'index.cjs.js';
 const esm = 'index.esm.js';
+const umd = 'index.umd.js';
 
 function createRollupOutput(module) {
     return {
@@ -20,6 +21,11 @@ function createRollupOutput(module) {
             {
                 file: `dist/${module}/${cjs}`,
                 format: 'cjs'
+            },
+            {
+                file: `dist/${module}/${umd}`,
+                format: 'umd',
+                name: kebabCase(module)
             }
         ],
         plugins: [

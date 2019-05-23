@@ -1,9 +1,9 @@
 {
   "name": "custom-react",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "some custom react stuff",
-  "main": "dist/cjs/main.js",
-  "module": "dist/esm/main.js",
+  "main": "cjs/main.js",
+  "module": "esm/main.js",
   "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server",
@@ -27,7 +27,13 @@
     }
   },
   "files": [
-    "dist"
+    "dist/PillButton",
+    "dist/ButtonGroup",
+    "dist/DataGraph",
+    "dist/BaseButton",
+    "dist/esm",
+    "dist/cjs",
+    "dist/umd"
   ],
   "repository": {
     "type": "git",

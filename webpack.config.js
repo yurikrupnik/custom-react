@@ -29,18 +29,18 @@ module.exports = (env) => {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss']
         },
         devtool: isProd ? '' : 'eval-cheap-module-source-map',
-        // entry: isProd ? './index.js' : './client.jsx',
+        entry: './client.jsx',
         // entry: [
         //     './BaseButton/index.js',
         //     './PillButton/index.js',
         // ],
-        entry: {
-            main: './index.js',
-            // 'BaseButton/index': './BaseButton/index.js',
-            // 'PillButton/index': './PillButton/index.js',
-            // 'ButtonGroup/index': './ButtonGroup/index.js',
-            // 'DataGraph/index': './DataGraph/index.js',
-        },
+        // entry: {
+        //     main: './index.js',
+        //     // 'BaseButton/index': './BaseButton/index.js',
+        //     // 'PillButton/index': './PillButton/index.js',
+        //     // 'ButtonGroup/index': './ButtonGroup/index.js',
+        //     // 'DataGraph/index': './DataGraph/index.js',
+        // },
         output: {
             filename: '[name].js',
             chunkFilename: '[name].js',

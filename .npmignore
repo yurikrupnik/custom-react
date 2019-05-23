@@ -66,6 +66,7 @@ typings/
 .storybook
 .idea
 src
+dist
 /.babelrc
 /.editorconfig
 /.eslintignore
