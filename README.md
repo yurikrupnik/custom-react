@@ -9,4 +9,7 @@
 ![peerDependencies Status](https://david-dm.org/yurikrupnik/custom-react/peer-status.svg)
 
 # custom-react
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/yurikrupnik/custom-react.svg)](https://greenkeeper.io/)
+
 some custom react stuff
