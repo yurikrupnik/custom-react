@@ -12,9 +12,6 @@ import {
 const routes = Object.keys(components).reduce((acc, next) => {
     const Com = components[next];
     // console.log('Com', Com);
-console.log('next', next);
-console.log('Com', Com);
-
     const { propTypes } = Com; // eslint-disable-line
     if (!propTypes) {
         return acc;

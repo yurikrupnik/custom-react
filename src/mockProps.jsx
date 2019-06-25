@@ -15,11 +15,11 @@ const componentsProps = {
     ButtonGroup: {
         data: [
             {
-                onClick: function () {},
+                onClick: () => {},
                 title: 'as1'
             },
             {
-                onClick: function () {},
+                onClick: () => {},
                 title: 'as2'
             }
         ]
